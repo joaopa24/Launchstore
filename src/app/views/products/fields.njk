@@ -43,12 +43,12 @@
         <input type="number" name="quantity" placeholder="Estoque Disponível" value="{{ product.quantity }}">
     </div>
 </div>
-{% if product.status %}
+{% if (product.status == "1") or (product.status == "0") %}
 <div class="item">
     <div>Disponível?</div>
     <div>
-        <span><input type="radio" name="status" value="M" {% if product.status == "1" %} checked{% endif %}>Sim</span>
-        <span><input type="radio" name="status" value="F" {% if product.status == "0" %} checked{% endif %}>Não</span>
+        <span><input type="radio" name="status" value="1" {% if product.status == "1" %} checked{% endif %}>Sim</span>
+        <span><input type="radio" name="status" value="0" {% if product.status == "0" %} checked{% endif %}>Não</span>
     </div>
 </div>
 {% endif %}

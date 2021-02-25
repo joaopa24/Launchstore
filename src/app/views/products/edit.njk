@@ -14,12 +14,12 @@
                 <input type="hidden" name="id" value="{{ product.id }}">
             </div>
 
-            <button class="button">Atualizar</button>
+            <button class="button edit">Atualizar</button>
         </form>
 
         <form id="form-delete" action="/products?_method=DELETE" method="post">
             <input type="hidden" name="id" value="{{ product.id }}">
-            <button class="button" type="submit">Deletar</button>
+            <button class="button delete" type="submit">Deletar</button>
         </form>
 
         <script>
