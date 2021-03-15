@@ -24,13 +24,18 @@
     </div>
 </div>
 
-{# Campo de foto #}
+<div class="item">
+    <div>Fotos</div>
+    <div>
+       <input type="file" name="photos" multiple>
+    </div>
+</div>
 
 <div class="item">
     <div>Valor</div>
     <div>
        <input type="text" name="price" placeholder="Preço do Produto" value="{{ product.price }}" onkeydown="Mask.apply(this,'formatBRL')">
-       {# Faremos uma mascara de dinheiro em reais#}
+       {#Faremos uma mascara de dinheiro em reais#}
     </div>
     {% if product.old_price %}
        <input type="hidden" name="old_price" placeholder="Preço do Produto" value="{{ product.old_price }}">
