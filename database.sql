@@ -6,7 +6,7 @@ CREATE TABLE "products" (
   "description" text NOT NULL,
   "old_price" int,
   "price" int NOT NULL,
-  "quantify" int DEFAULT 0,
+  "quantity" int DEFAULT 0,
   "status" int DEFAULT 1,
   "created_at" timestamp DEFAULT (now()),
   "updated_at" timestamp DEFAULT (now())

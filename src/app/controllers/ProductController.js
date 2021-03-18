@@ -29,14 +29,11 @@ module.exports = {
         let results = await Product.create(req.body)
         const productId = results.rows[0].id
 
-        const filesPromise = req.files.map(file => File.create({
-            ...file,
-            product_id: productId
-        }))
+        const filesPromise = req.files.map(file => File.create({...file,product_id: productId}))
 
         await Promise.all(filesPromise)
 
-        return res.redirect(`/products/${productId}`) 
+        return res.redirect(`/products/${productId}/edit`) 
     },
     async edit(req, res){
         
@@ -54,7 +51,7 @@ module.exports = {
         const categories = results.rows
         
         // get images
-        results = await Product.files(product_id)
+        results = await Product.files(product.id)
         let files = results.rows
         files = files.map(file => ({
             ...file,
