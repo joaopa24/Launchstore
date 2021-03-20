@@ -70,11 +70,17 @@ module.exports = {
         }
         
         if(req.files.length != 0){
-            const newFilesPromise = req.files.map(file => File.create({...file, id:req.body.id}))
-            
-            
-            await Promise.all(newFilesPromise)
 
+            // validar se já não existem 6 imagens no total
+            
+            const oldFiles = await Product.files(req.body.id)
+            const totalFiles = oldFiles.rows.length + req.files.length
+
+            if(totalFiles <= 6){
+                const newFilesPromise = req.files.map(file => File.create({...file, product_id:req.body.id}))
+        
+                await Promise.all(newFilesPromise)                 
+            }
         }
 
         if(req.body.removed_files){
