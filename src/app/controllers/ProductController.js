@@ -72,19 +72,23 @@ module.exports = {
         if(req.files.length != 0){
             const newFilesPromise = req.files.map(file => File.create({...file, id:req.body.id}))
             
-            console.log(newFilesPromise)
+            
             await Promise.all(newFilesPromise)
 
         }
 
         if(req.body.removed_files){
             const removedFiles = req.body.removed_files.split(",") //[1,2,3,]
-            const lastIndex = removedFiles.length - 1 
+            console.log(removedFiles)
+            const lastIndex = (removedFiles.length - 1)
+            console.log(lastIndex)
             removedFiles.splice(lastIndex, 1) // [1,2,3]
-        
+            console.log(removedFiles)
             const removedFilesPromise = removedFiles.map(id => File.delete(id))
-           
+            
+            
             await Promise.all(removedFilesPromise)
+            console.log(removedFilesPromise)
         }
 
         req.body.price = req.body.price.replace(/\D/g,"")
