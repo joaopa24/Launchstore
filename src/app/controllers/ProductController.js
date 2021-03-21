@@ -42,6 +42,16 @@ module.exports = {
 
         if(!product) return res.send("Product Not Found!")
         
+        const { day, hour, minutes, month} = date(product.update_at)
+
+        product.published = {
+            day:`${day}/${month}`,
+            hour:`${hour}:${minutes}`,
+        }
+
+        product.oldPrice = formatPrice(product.old_price)
+        product.price = formatPrice(product.price)
+        
         return res.render('products/show', { product })
     },
     async edit(req, res){
