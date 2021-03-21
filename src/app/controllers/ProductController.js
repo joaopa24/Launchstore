@@ -1,4 +1,4 @@
-const { formatPrice } = require('../../lib/utils')
+const { formatPrice, date } = require('../../lib/utils')
 const Category = require("../models/Category")
 const Product = require("../models/Product")
 const File = require("../models/File")
@@ -36,8 +36,13 @@ module.exports = {
 
         return res.redirect(`/products/${productId}/edit`) 
     },
-    show(req, res){
-        return res.render('products/show')
+    async show(req, res){
+        let results = await Product.find(req.params.id)
+        const product = results.rows[0]
+
+        if(!product) return res.send("Product Not Found!")
+        
+        return res.render('products/show', { product })
     },
     async edit(req, res){
         
