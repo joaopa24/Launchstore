@@ -16,6 +16,7 @@ module.exports = {
     },
     async post(req, res){
         const keys = Object.keys(req.body)
+         
         for (key of keys) {
             if (req.body[key] == "") {
                 return res.send("porfavor preencha todos os campos")
@@ -25,7 +26,7 @@ module.exports = {
         if (req.files.length == 0) {
               return res.send('Porfavor, envie pelo menos 1 imagem.')
         }
-
+          
         let results = await Product.create(req.body)
         const productId = results.rows[0].id
 
@@ -34,6 +35,9 @@ module.exports = {
         await Promise.all(filesPromise)
 
         return res.redirect(`/products/${productId}/edit`) 
+    },
+    show(req, res){
+        return res.render('products/show')
     },
     async edit(req, res){
         
@@ -61,7 +65,9 @@ module.exports = {
         return res.render("products/edit.njk", { product, categories, files })
     },
     async put(req, res){
+        console.log(req.body)
         const keys = Object.keys(req.body)
+        
 
         for (key of keys) {
             if (req.body[key] == "" && key != "removed_files") {
@@ -85,16 +91,15 @@ module.exports = {
 
         if(req.body.removed_files){
             const removedFiles = req.body.removed_files.split(",") //[1,2,3,]
-            console.log(removedFiles)
+            //console.log(removedFiles)//
             const lastIndex = (removedFiles.length - 1)
-            console.log(lastIndex)
+            //console.log(lastIndex)
             removedFiles.splice(lastIndex, 1) // [1,2,3]
-            console.log(removedFiles)
+            //console.log(removedFiles)
             const removedFilesPromise = removedFiles.map(id => File.delete(id))
             
             
-            await Promise.all(removedFilesPromise)
-            console.log(removedFilesPromise)
+            await Promise.all(removedFilesPrwomise)
         }
 
         req.body.price = req.body.price.replace(/\D/g,"")
@@ -113,7 +118,7 @@ module.exports = {
     async delete(req, res){
         await Product.delete(req.body.id)
 
-        return res.redirect('/products/create')
+        return res.redirect('products/create')
     }
 
 }
