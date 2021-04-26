@@ -120,7 +120,7 @@ module.exports = {
             const removedFilesPromise = removedFiles.map(id => File.delete(id))
             
             
-            await Promise.all(removedFilesPrwomise)
+            await Promise.all(removedFilesPromise)
         }
 
         req.body.price = req.body.price.replace(/\D/g,"")
