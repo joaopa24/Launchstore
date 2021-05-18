@@ -95,11 +95,10 @@ module.exports = {
                 return res.send("porfavor preencha todos os campos")
             }
         }
-        console.log(req.files)
+
         if(req.files.length != 0){
 
             // validar se já não existem 6 imagens no total
-            console.log(req.files)
             const oldFiles = await Product.files(req.body.id)
             const totalFiles = oldFiles.rows.length + req.files.length
 
