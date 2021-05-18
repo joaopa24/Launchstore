@@ -436,7 +436,7 @@ form .item #photos-preview img {
     align-items: center;
 }
 
-.product-single .price-buy .price .old{
+.product-single .price-buy .price .old,.old-price{
     text-decoration: line-through;
     color: #999;
     font-size: 14px;
