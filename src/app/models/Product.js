@@ -92,11 +92,11 @@ module.exports = {
         `
         query = `
             SELECT products.*,
-            categories.name AS category.name
+            categories.name AS category_name
             FROM products 
             LEFT JOIN categories ON (categories.id = products.category_id)
             ${filterQuery}
-            GROUP BY categories.name
+            
         `
         return db.query(query)
     }
