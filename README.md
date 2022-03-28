@@ -19,8 +19,8 @@
 
 <h4> 2. Rode essa aplicação no Terminal <h4>
 
-<p> Add database access credentials in src / app / config / db.js file. </p>
-<p> You can create a database using the database file. </p>
+<p> Adicionar credenciais de acesso ao banco de dados em src / app / config / db.js file. </p>
+<p> Você pode criar um banco de dados usando o arquivo de banco de dados </p>
 
 ```
 #Instale as dependências 
