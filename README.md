@@ -9,3 +9,24 @@
 
 <h2> <img src="https://i.dlpng.com/static/png/6577858_preview.png" width="50px" align="center"/> Instalação? </h2>
 <p> É preciso instalar o <a href="https://nodejs.org/en/">Node.js</a>, <a href="https://www.postgresql.org/">PostgreSQL</a> e o <a href="https://www.electronjs.org/apps/postbird">Postbird</a>. </p>
+
+<h3> Passos <h3>
+<h4> 1. Clone o repositório <h4>
+
+```
+ $ git clone https://github.com/mjulialobo/Launchstore
+```
+
+<h4> 2. Rode essa aplicação no Terminal <h4>
+
+<p> Add database access credentials in src / app / config / db.js file. </p>
+<p> You can create a database using the database file. </p>
+
+```
+#Instale as dependências 
+$ npm install
+
+#De um start no server
+$ npm start
+
+```
