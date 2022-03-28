@@ -7,4 +7,5 @@
 
 <p> Launchstore é um E-commerce desenvolvido no bootcamp Launchbase da Rocketseat. Ele foi criado usando HTML, CSS, JavaScript, Node.js e PostgreSQL. </p>
 
+<h2> <img src="https://i.dlpng.com/static/png/6577858_preview.png" width="50px" align="center"/> Instalação? </h2>
 <p> É preciso instalar o <a href="https://nodejs.org/en/">Node.js</a>, <a href="https://www.postgresql.org/">PostgreSQL</a> e o <a href="https://www.electronjs.org/apps/postbird">Postbird</a>. </p>
