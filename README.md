@@ -17,16 +17,16 @@
  $ git clone https://github.com/mjulialobo/Launchstore
 ```
 
-<h2> 2. Rode essa aplicação no Terminal <h2>
+###Rode essa aplicação no Terminal
 
 <p> Adicionar credenciais de acesso ao banco de dados em src / app / config / db.js file. </p>
 <p> Você pode criar um banco de dados usando o arquivo de banco de dados </p>
 
 ```
-#Instale as dependências 
+Instale as dependências 
 $ npm install
 
-#De um start no server
+De um start no server
 $ npm start
 
 ```
